@@ -339,3 +339,6 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--blue); outl
   .sk__stage { position: relative; }
   .sk__skis { display: none; }
 }
+
+.pack__price small { display: block; margin-bottom: 4px; font-family: var(--sc-font-text); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
+.pack__price { font-variant-numeric: tabular-nums; }

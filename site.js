@@ -216,7 +216,7 @@
   var din = document.querySelector('.don__calc input'), dout = document.querySelector('.don__out');
   var calc = function () {
     var v = Math.max(0, +din.value || 0);
-    dout.innerHTML = 'Coût réel : <b>' + eur(Math.round(v * .34)) + '</b> pour un particulier, <b>' + eur(Math.round(v * .4)) + '</b> pour une entreprise.';
+    dout.innerHTML = 'Coût réel après la réduction de 66 % : <b>' + eur(Math.round(v * .34)) + '</b>.';
   };
   din.addEventListener('input', calc); calc();
   ScrollCraft.mount(document.body);
