@@ -321,7 +321,6 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--blue); outl
 }
 
 /* SLIDE SESSION EN 3D (sous la vidéo) : skis Blender pilotés par le scroll */
-.hero .ridge--crest { fill: #0B0D2C; }
 .sk { position: relative; height: 220svh; background: #0B0D2C; }
 .sk__stage { position: sticky; top: 0; height: 100svh; overflow: clip; color: #fff; --p: 0; }
 .sk__sky { position: absolute; inset: 0; background:
@@ -371,3 +370,9 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--blue); outl
 .pack--or .pack__net b { color: var(--sc-ink); }
 .pack__note { margin-top: -12px; font-size: 13px; color: rgba(255,255,255,.7); }
 .pack--or .pack__price s { opacity: .8; }
+
+/* séquence 3D en fin de page : elle termine sur la neige crème, donc pas de crête sombre avant le contact */
+.sk + .close { padding-top: clamp(48px, 6vw, 90px); }
+.sk + .close .ridge--top { display: none; }
+.partner::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; background: linear-gradient(180deg, rgba(11,13,44,0), #0B0D2C); pointer-events: none; }
+.partner__inner { z-index: 1; }
