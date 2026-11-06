@@ -4,3 +4,4 @@ assets/teaser*.mp4, assets/teaser-poster.webp | instagram.com/reel/DOnvUzSjUXo (
 assets/logo-smt.png | smt.mc (logo officiel, fond blanc rendu transparent) | logo du sponsor SMT Fine Art, utilisé avec son accord de sponsoring
 assets/logo-ecovis.png | ecovis.fr (logo officiel, mention « devient Endrix » retirée) | logo du sponsor Ecovis
 assets/logo-devinci.png | devinci.fr (logo officiel) | logo De Vinci Higher Education
+assets/merch/*.webp | maquettes et photos du merch fournies par l'asso (06/11/2026), détourées et mises sur fond blanc studio par lab/merch_studio.py | visuels de l'association Slide Session

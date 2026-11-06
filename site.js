@@ -138,46 +138,88 @@
     layout();
   }
 
-  /* ---------- boutique ---------- */
-  // ponytail: prix et articles indicatifs, à confirmer par le bureau. Modifier ici.
-  var LOGO = '<image href="assets/logo.png" ';
+  /* ---------- boutique : le merch de l'asso, photos en carrousel ---------- */
+  // prix: null = « Prix à confirmer » (seul le pull a un prix connu). Modifier ici.
+  var TAILLES = ['XS', 'S', 'M', 'L', 'XL'];
   var PRODUITS = [
-    { id: 'sweat', nom: 'Sweat Slide', prix: 45, tint: '#E4E7FB', tailles: ['XS', 'S', 'M', 'L', 'XL'],
-      txt: 'Le sweat bleu du bureau, logo jaune brodé.',
-      svg: '<svg viewBox="0 0 200 200"><path d="M70 30q30 22 60 0l40 18 22 62-26 10-10-26v86H44V94l-10 26-26-10 22-62z" fill="#2A31B4"/><path d="M78 30q22 30 44 0" fill="none" stroke="#1A1F86" stroke-width="6"/>' + LOGO + 'x="70" y="78" width="60" height="47"/></svg>' },
-    { id: 'bonnet', nom: 'Bonnet licorne', prix: 20, tint: '#FCE6F1', tailles: null,
-      txt: 'Le super pouvoir officiel de l’asso. Taille unique.',
-      svg: '<svg viewBox="0 0 200 200"><path d="M40 130q0-80 60-80t60 80z" fill="#F49AC8"/><path d="M100 52 112 6 88 6z" transform="rotate(8 100 52)" fill="#FFB937"/><rect x="34" y="124" width="132" height="34" rx="10" fill="#2A31B4"/>' + LOGO + 'x="78" y="126" width="44" height="34"/></svg>' },
-    { id: 'tour', nom: 'Tour de cou', prix: 12, tint: '#FFF1D2', tailles: null,
-      txt: 'Polaire, aux couleurs Slide, pour les télésièges de 8 h.',
-      svg: '<svg viewBox="0 0 200 200"><ellipse cx="100" cy="48" rx="56" ry="16" fill="#1A1F86"/><path d="M44 48v100q56 30 112 0V48q-56 30-112 0z" fill="#FFB937"/><path d="M44 96q56 30 112 0" stroke="#2A31B4" stroke-width="10" fill="none"/></svg>' },
-    { id: 'stickers', nom: 'Pack stickers', prix: 5, tint: '#E9E4FB', tailles: null,
-      txt: 'Cinq stickers pour le casque, le PC et la gourde.',
-      svg: '<svg viewBox="0 0 200 200"><rect x="40" y="46" width="110" height="110" rx="22" fill="#5B3FD8" transform="rotate(-10 95 101)"/><rect x="52" y="40" width="110" height="110" rx="22" fill="#fff" stroke="#15174F" stroke-width="3" transform="rotate(6 107 95)"/>' + LOGO + 'x="62" y="62" width="90" height="71" transform="rotate(6 107 95)"/></svg>' }
+    { id: 'pull', nom: 'Pull Slide x Altigliss', prix: 45, tailles: TAILLES,
+      txt: 'Noir. GEM Altigliss Challenge et Slide devant, la licorne Slide dans le dos.',
+      photos: [['pull-1', 'Pull noir vu de face : logos GEM Altigliss Challenge et Slide Session'], ['pull-2', 'Pull noir vu de dos : grande licorne Slide']] },
+    { id: 'tee-alt', nom: 'T-shirt Alt. 2 000 m', prix: null, tailles: TAILLES,
+      txt: 'Marine. Logo Slide devant, skieur « Slide Session, Alt. 2,000 m » dans le dos.',
+      photos: [['tee-alt-1', 'T-shirt marine vu de face : logo Slide Session'], ['tee-alt-2', 'T-shirt marine vu de dos : skieur et inscription Slide Session Alt. 2,000 m']] },
+    { id: 'tee-masque', nom: 'T-shirt Slide masque', prix: null, tailles: TAILLES,
+      txt: 'Écru. Masque de ski « Slide » brodé devant, en grand dans le dos.',
+      photos: [['tee-masque-1', 'T-shirt écru, devant et dos, sur cintres'], ['tee-masque-2', 'Gros plan de la broderie du devant : masque de ski Slide'], ['tee-masque-3', 'Gros plan du dos : masque Slide, montagne et skis croisés']] },
+    { id: 'tee-blanc', nom: 'T-shirt Slide blanc', prix: null, tailles: TAILLES,
+      txt: 'Blanc. Logo Slide Session brodé côté cœur.',
+      photos: [['tee-blanc-1', 'T-shirt blanc, logo Slide Session côté cœur']] },
+    { id: 'debardeur', nom: 'Débardeur Slide', prix: null, tailles: TAILLES,
+      txt: 'Blanc. Logo Slide Session brodé côté cœur.',
+      photos: [['debardeur-1', 'Débardeur blanc, logo Slide Session côté cœur']] },
+    { id: 'bob', nom: 'Bob Slide Session', prix: null, tailles: null,
+      txt: 'Beige. Logo Slide Session brodé, cordon réglable. Taille unique.',
+      photos: [['bob-1', 'Bob beige avec le logo Slide Session brodé'], ['bob-2', 'Gros plan de la broderie Slide Session sur le bob']] }
   ];
   var cart = [], shop = document.querySelector('.shop'),
       fab = document.querySelector('.cart__fab'), drawer = document.querySelector('.cart'),
       list = drawer.querySelector('.cart__list'), total = drawer.querySelector('.cart__total');
   var eur = function (n) { return n.toLocaleString('fr-FR') + ' €'; };
+  var prixTxt = function (n) { return n == null ? 'Prix à confirmer' : eur(n); };
 
   shop.innerHTML = PRODUITS.map(function (p) {
-    return '<article class="item" data-id="' + p.id + '"><div class="item__visual" style="--tint:' + p.tint + '">' + p.svg + '</div>' +
-      '<div class="item__body"><h3 class="caps">' + p.nom + '</h3><p>' + p.txt + '</p><div class="item__row"><span class="item__price">' + eur(p.prix) + '</span>' +
+    var many = p.photos.length > 1;
+    return '<article class="item" data-id="' + p.id + '">' +
+      '<div class="gal"' + (many ? ' role="group" aria-roledescription="carrousel" aria-label="Photos : ' + p.nom + '"' : '') + '>' +
+        '<div class="gal__track">' + p.photos.map(function (ph, i) {
+          return '<img src="assets/merch/' + ph[0] + '.webp" alt="' + ph[1] + '" width="1000" height="1000" loading="lazy"' + (many ? ' aria-label="' + (i + 1) + ' sur ' + p.photos.length + '"' : '') + '>';
+        }).join('') + '</div>' +
+        (many ? '<button type="button" class="gal__nav gal__nav--prev" aria-label="Photo précédente">‹</button>' +
+                '<button type="button" class="gal__nav gal__nav--next" aria-label="Photo suivante">›</button>' +
+                '<div class="gal__dots">' + p.photos.map(function (ph, i) {
+                  return '<button type="button" aria-label="Photo ' + (i + 1) + ' sur ' + p.photos.length + '"' + (i ? '' : ' aria-current="true"') + '></button>';
+                }).join('') + '</div>' : '') +
+      '</div>' +
+      '<div class="item__body"><h3 class="caps">' + p.nom + '</h3><p>' + p.txt + '</p><div class="item__row">' +
+      '<span class="item__price' + (p.prix == null ? ' item__price--tbc' : '') + '">' + prixTxt(p.prix) + '</span>' +
       (p.tailles ? '<select aria-label="Taille ' + p.nom + '">' + p.tailles.map(function (t) { return '<option' + (t === 'M' ? ' selected' : '') + '>' + t + '</option>'; }).join('') + '</select>' : '') +
       '<button type="button" class="btn">Ajouter</button></div></div></article>';
   }).join('');
 
+  // carrousels : défilement natif (doigt, trackpad), flèches et points synchronisés
+  [].forEach.call(shop.querySelectorAll('.gal'), function (g) {
+    var track = g.querySelector('.gal__track'), dots = [].slice.call(g.querySelectorAll('.gal__dots button'));
+    if (!dots.length) return;
+    var go = function (i) { track.scrollTo({ left: i * track.clientWidth, behavior: reduce ? 'auto' : 'smooth' }); };
+    var cur = function () { return Math.round(track.scrollLeft / track.clientWidth); };
+    g.querySelector('.gal__nav--prev').addEventListener('click', function () { go(Math.max(0, cur() - 1)); });
+    g.querySelector('.gal__nav--next').addEventListener('click', function () { go(Math.min(dots.length - 1, cur() + 1)); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+    var sync = function () {
+      var i = cur();
+      dots.forEach(function (d, k) { if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); });
+      g.classList.toggle('is-first', i === 0); g.classList.toggle('is-last', i === dots.length - 1);
+    };
+    track.addEventListener('scroll', function () { requestAnimationFrame(sync); }, { passive: true });
+    sync();
+  });
+
+  var totalTxt = function () {
+    var known = cart.reduce(function (s, l) { return s + (l.prix == null ? 0 : l.q * l.prix); }, 0);
+    var tbc = cart.some(function (l) { return l.prix == null; });
+    return 'Total : ' + eur(known) + (tbc ? ' + articles à prix à confirmer' : '');
+  };
   var render = function () {
     var n = cart.reduce(function (s, l) { return s + l.q; }, 0);
     fab.hidden = n === 0; fab.querySelector('.cart__count').textContent = n;
     list.innerHTML = cart.map(function (l, i) {
-      return '<li><span>' + l.q + ' × ' + l.nom + (l.taille ? ' (' + l.taille + ')' : '') + '</span><span>' + eur(l.q * l.prix) + ' <button type="button" data-i="' + i + '">Retirer</button></span></li>';
+      return '<li><span>' + l.q + ' × ' + l.nom + (l.taille ? ' (' + l.taille + ')' : '') + '</span><span>' + (l.prix == null ? 'à confirmer' : eur(l.q * l.prix)) + ' <button type="button" data-i="' + i + '">Retirer</button></span></li>';
     }).join('') || '<li>Ton panier est vide.</li>';
-    total.textContent = 'Total : ' + eur(cart.reduce(function (s, l) { return s + l.q * l.prix; }, 0));
+    total.textContent = totalTxt();
     if (!n) drawer.hidden = true;
   };
   shop.addEventListener('click', function (e) {
-    var b = e.target.closest('.btn'); if (!b) return;
+    var b = e.target.closest('.item__row .btn'); if (!b) return;
     var el = b.closest('.item'), p = PRODUITS.filter(function (x) { return x.id === el.dataset.id; })[0];
     var sel = el.querySelector('select'), taille = sel ? sel.value : '';
     var line = cart.filter(function (l) { return l.id === p.id && l.taille === taille; })[0];
@@ -199,8 +241,8 @@
     e.preventDefault();
     var f = e.target;
     mail('Commande goodies Slide Session · ' + f.nom.value, ['Bonjour,', '', 'Je souhaite commander :'].concat(
-      cart.map(function (l) { return '- ' + l.q + ' × ' + l.nom + (l.taille ? ' (taille ' + l.taille + ')' : '') + ' : ' + eur(l.q * l.prix); }),
-      [total.textContent, '', 'Nom : ' + f.nom.value, 'E-mail : ' + f.email.value, 'École : ' + f.ecole.value]));
+      cart.map(function (l) { return '- ' + l.q + ' × ' + l.nom + (l.taille ? ' (taille ' + l.taille + ')' : '') + ' : ' + (l.prix == null ? 'prix à confirmer' : eur(l.q * l.prix)); }),
+      [totalTxt(), '', 'Nom : ' + f.nom.value, 'E-mail : ' + f.email.value, 'École : ' + f.ecole.value]));
   });
 
   /* ---------- demande de partenariat ---------- */

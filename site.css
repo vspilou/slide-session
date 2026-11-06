@@ -188,16 +188,30 @@ p { margin: 0; text-wrap: pretty; }
 .goodies__head { display: grid; gap: 14px; max-width: 640px; margin-bottom: 40px; }
 .goodies__head .caps { color: var(--sc-accent); }
 .goodies__head p { color: rgba(255,255,255,.82); }
-.shop { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 24px); }
-.item { background: #fff; color: var(--sc-ink); border-radius: 8px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
-.item__visual { aspect-ratio: 1; display: grid; place-items: center; background: var(--tint, #EEF0FB); }
-.item__visual svg { width: 66%; height: auto; transition: transform .5s var(--ease-out); }
-.item:hover .item__visual svg { transform: translateY(-6px) rotate(-3deg); }
-.item__body { padding: 16px; display: grid; gap: 10px; align-content: start; }
-.item__body h3 { font-size: 13px; }
-.item__body p { font-size: 15px; color: var(--sc-ink-soft); }
-.item__row { display: flex; gap: 8px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
-.item__price { font-family: var(--sc-font-display); font-weight: 400; font-size: 18px; color: var(--blue); }
+.shop { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 24px); }
+.item { background: #fff; color: var(--sc-ink); border-radius: 14px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; box-shadow: 0 24px 50px -34px rgba(6,8,40,.7); }
+.gal { position: relative; background: #fff; }
+.gal__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.gal__track::-webkit-scrollbar { display: none; }
+.gal__track img { flex: 0 0 100%; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; scroll-snap-align: center; }
+.gal__nav { position: absolute; top: 50%; width: 40px; height: 40px; margin-top: -20px; border-radius: 50%; border: 0; cursor: pointer;
+  background: rgba(255,255,255,.92); color: var(--sc-ink); font-size: 24px; line-height: 1; box-shadow: 0 6px 16px -8px rgba(6,8,40,.5);
+  opacity: 0; transition-property: opacity, transform; transition-duration: .2s; transition-timing-function: var(--ease-ui); }
+.gal__nav--prev { left: 10px; } .gal__nav--next { right: 10px; }
+.gal:hover .gal__nav, .gal__nav:focus-visible { opacity: 1; }
+.gal__nav:active { transform: scale(.94); }
+.gal.is-first .gal__nav--prev, .gal.is-last .gal__nav--next { opacity: 0; pointer-events: none; }
+@media (hover: none) { .gal__nav { display: none; } }
+.gal__dots { position: absolute; left: 0; right: 0; bottom: 8px; display: flex; justify-content: center; gap: 0; }
+.gal__dots button { width: 28px; height: 28px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.gal__dots button::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: rgba(21,23,79,.25); transition-property: background-color, transform; transition-duration: .2s; }
+.gal__dots button[aria-current]::before { background: var(--sc-ink); transform: scale(1.25); }
+.item__body { padding: 18px; display: grid; gap: 10px; align-content: start; }
+.item__body h3 { font-size: 18px; }
+.item__body p { font-size: 15px; color: var(--sc-ink-soft); text-wrap: pretty; }
+.item__row { display: flex; gap: 8px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: auto; }
+.item__price { font-family: var(--sc-font-display); font-weight: 400; font-size: 22px; color: var(--blue); font-variant-numeric: tabular-nums; }
+.item__price--tbc { font-family: var(--sc-font-text); font-size: 14px; font-weight: 600; color: var(--sc-ink-soft); }
 .item select { border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; background: #fff; min-height: 40px; }
 .item .btn { min-height: 42px; padding: 0 1.1em; color: var(--sc-ink); }
 .item .btn.is-added { background: var(--sc-ink); border-color: var(--sc-ink); color: #fff; }
@@ -303,7 +317,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--blue); outl
 @media (max-width: 520px) { .contacts { grid-template-columns: 1fr; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .gate__card, .gate__flag::after, .trio img, .item__visual svg, .btn { transition: none; }
+  .gate__card, .gate__flag::after, .trio img, .gal__nav, .gal__dots button::before, .btn { transition: none; }
 }
 
 /* SLIDE SESSION EN 3D (sous la vidéo) : skis Blender pilotés par le scroll */
