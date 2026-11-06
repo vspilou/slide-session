@@ -13,6 +13,19 @@
     a.addEventListener('click', function () { bar.classList.remove('is-open'); menu.setAttribute('aria-expanded', false); });
   });
 
+  /* ---------- en-tête en verre : teinte claire au-dessus des sections claires ---------- */
+  var DARK = '.hero, .goodies, .partner, .sk, .foot, .x-hero, .x-chal, .x-palm';
+  var tone = function () {
+    var r = bar.getBoundingClientRect(), under = document.elementsFromPoint(r.left + 24, r.top + r.height / 2)
+      .filter(function (el) { return !bar.contains(el); })[0];
+    var sec = under && under.closest('main > section, .foot, section');
+    bar.classList.toggle('is-light', !!sec && !sec.matches(DARK));
+  };
+  var toneQ = false;
+  addEventListener('scroll', function () { if (!toneQ) { toneQ = true; requestAnimationFrame(function () { toneQ = false; tone(); }); } }, { passive: true });
+  addEventListener('resize', tone);
+  tone();
+
   /* ---------- vidéo du héros : version légère sur mobile, rien en mouvement réduit (le poster reste) ---------- */
   var vid = document.querySelector('.hero__bg');
   if (vid && !reduce) {

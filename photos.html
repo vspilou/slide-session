@@ -122,6 +122,13 @@
 (function () {
   var bar = document.querySelector('.bar'), menu = bar.querySelector('.bar__menu');
   menu.addEventListener('click', function () { menu.setAttribute('aria-expanded', bar.classList.toggle('is-open')); });
+  // en-tête en verre : teinte claire au-dessus de la grille de photos
+  var tone = function () {
+    var r = bar.getBoundingClientRect(), under = document.elementsFromPoint(r.left + 24, r.top + r.height / 2).filter(function (el) { return !bar.contains(el); })[0];
+    bar.classList.toggle('is-light', !(under && under.closest('.ptop, .foot, dialog')));
+  };
+  addEventListener('scroll', function () { requestAnimationFrame(tone); }, { passive: true });
+  tone();
 
   var items = [].slice.call(document.querySelectorAll('.grid button'));
   document.querySelector('.filters').addEventListener('click', function (e) {
