@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Slide Session · l'asso de ski du Pôle Léonard de Vinci</title>
+<meta name="description" content="Slide Session, l'association de ski du Pôle Léonard de Vinci depuis 1999. Palmarès au GEM Altigliss Challenge, goodies, sponsors et partenariats.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="scrollcraft.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<span data-sc-progress></span>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ridge" viewBox="0 0 1440 110" preserveAspectRatio="none">
+    <path d="M0 110V58C140 18 260 22 400 52S640 98 800 66 1060 2 1220 30 1380 76 1440 60V110Z"/>
+  </symbol>
+  <symbol id="crest" viewBox="0 0 1288 110" preserveAspectRatio="none">
+    <path d="M0 110V62l38-9 30 14 44-30 26 18 40-26 34 22 22-8 46 27 38-35 30 15 26-6 52 30 40-42 28 20 34-12 30 22 52-24 36 16 44-34 24 12 30-4 46 30 34-22 40 16 26-30 36 24 48-18 30 20 44-38 32 26 36-10 40 22 30-14 38 12 34-26 30 18V110Z"/>
+  </symbol>
+</svg>
+
+<header class="bar" id="haut">
+  <a class="bar__logo" href="index.html#haut" aria-label="Slide Session, accueil"><img src="assets/logo.png" alt="Slide Session" width="288" height="227"></a>
+  <nav class="bar__nav" id="nav" aria-label="Navigation principale">
+    <a href="index.html#asso">L'asso</a>
+    <a href="index.html#palmares">Palmarès</a>
+    <a href="photos.html">Photos</a>
+    <a href="index.html#goodies">Goodies</a>
+    <a href="index.html#sponsors">Sponsors</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#partenaire" class="bar__cta">Devenir partenaire</a>
+  </nav>
+  <button class="bar__menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+</header>
+
+<main>
+
+  <!-- HERO : vidéo teaser plein écran (fond), titre (milieu), neige + crête (devant) -->
+  <section class="hero" data-sc-act="flow">
+    <video class="hero__bg" data-sc-parallax="0.16" muted loop playsinline preload="metadata" poster="assets/teaser-poster.webp"
+           data-src="assets/teaser.mp4" data-src-mobile="assets/teaser-m.mp4" aria-label="Teaser vidéo de Slide Session : ski, Altigliss et soirées"></video>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__copy" data-sc-parallax="-0.1">
+      <p class="hero__kicker">L'asso de ski du Pôle Léonard de Vinci · depuis 1999</p>
+      <h1 class="hero__title">Slide Session</h1>
+    </div>
+    <canvas class="hero__snow" aria-hidden="true"></canvas>
+    <svg class="ridge ridge--crest" aria-hidden="true"><use href="#crest" width="100%" height="100%"/></svg>
+  </section>
+
+  <!-- SLIDE SESSION EN 3D : « SLIDE » derrière, skis Blender au milieu, « SESSION » devant, neige -->
+  <section class="sk" aria-label="Slide Session">
+    <div class="sk__stage">
+      <div class="sk__sky" aria-hidden="true"></div>
+      <svg class="sk__mtn sk__mtn--far" viewBox="0 0 1420 220" preserveAspectRatio="none" aria-hidden="true"><path d="M0 220V120l90-48 70 30 110-80 80 52 90-38 120 70 100-60 110 46 90-30 120 74 100-54 110 40 90-22 140 60V220Z"/></svg>
+      <p class="sk__word sk__word--back" aria-hidden="true">Slide</p>
+      <img class="sk__poster" src="assets/skis/skis-000.webp" alt="Paire de skis aux couleurs de Slide Session, modélisée en 3D" width="720" height="960" loading="lazy">
+      <canvas class="sk__skis" width="720" height="960" aria-hidden="true"></canvas>
+      <svg class="sk__mtn sk__mtn--near" viewBox="0 0 1580 160" preserveAspectRatio="none" aria-hidden="true"><path d="M0 160V92c120-40 220-30 330 6s210 36 330-10 230-60 360-24 220 52 340 30 160-20 220-12V160Z"/></svg>
+      <p class="sk__word sk__word--front" aria-hidden="true">Session</p>
+      <canvas class="hero__snow" aria-hidden="true"></canvas>
+    </div>
+  </section>
+
+  <section class="band">
+    <h2 class="caps">Rendez-vous du 13 au 20 mars 2027 à La Plagne</h2>
+    <p>Pour la 11<sup>e</sup> fois d'affilée, Slide Session part défendre les couleurs d'EMLV, ESILV et IIM au GEM Altigliss Challenge.</p>
+    <div class="band__cta">
+      <a class="btn btn--solid" href="#partenaire">Devenir partenaire</a>
+      <a class="btn" href="#goodies">Les goodies</a>
+    </div>
+  </section>
+
+  
+
+  <!-- ASSO -->
+  <section class="asso wrap" id="asso" data-sc-act="flow">
+    <div class="asso__text" data-sc-in data-sc-stagger="80">
+      <h2 class="caps caps--lg" style="white-space:nowrap">Qui sommes-nous&nbsp;?</h2>
+      <p class="lead">Depuis 1999, Slide Session est l'association de ski du Pôle Léonard de Vinci, à La Défense.</p>
+      <p>Le pôle réunit trois écoles, EMLV, ESILV et IIM : plus de 6 000 étudiants et 2 000 alumni encore très actifs. Slide est l'une des plus anciennes assos du pôle, avec 60 membres actifs venus des trois écoles.</p>
+      <p>Au programme : le voyage au ski mythique, les soirées, et chaque année le GEM Altigliss Challenge, la coupe du monde étudiante de ski et de snowboard.</p>
+      <ul class="facts">
+        <li><b>1999</b><span>année de création</span></li>
+        <li><b>60</b><span>membres actifs</span></li>
+        <li><b>3</b><span>écoles</span></li>
+        <li><b>11<sup>e</sup></b><span>Altigliss d'affilée</span></li>
+      </ul>
+    </div>
+    <div class="asso__pics">
+      <img class="asso__pic asso__pic--a" data-sc-parallax="-0.06" src="assets/team-flag.webp" alt="Les membres de Slide Session avec le drapeau de l'asso en haut des pistes" loading="lazy">
+      <img class="asso__pic asso__pic--b" data-sc-parallax="0.08" src="assets/team-ice.webp" alt="Riders Slide Session en vestes bleues à La Plagne" loading="lazy">
+    </div>
+  </section>
+
+  <!-- CHALLENGES (comme les trois ronds d'Altigliss) -->
+  <section class="challenges" id="challenges">
+    <div class="wrap">
+      <div class="challenges__head" data-sc-in>
+        <h2 class="caps caps--lg">Le GEM Altigliss Challenge</h2>
+        <p>Organisée depuis plus de 25 ans par Grenoble École de Management, c'est le 1<sup>er</sup> événement étudiant de ski et de snowboard : 1 000 étudiants, 30 nationalités, 90 équipes. La 27<sup>e</sup> édition se court à La Plagne.</p>
+      </div>
+      <div class="trio" data-sc-in data-sc-stagger="110">
+        <article>
+          <img src="assets/ch-ski.webp" alt="" width="400" height="400" loading="lazy">
+          <h3 class="caps">Le Challenge Ski</h3>
+          <p>La compétition incontournable : face aux meilleurs skieurs étudiants, sur les épreuves phares de la coupe du monde.</p>
+          <p class="tags">Slalom géant · Slalom spécial Rossignol · Skicross · Finale en parallèle</p>
+        </article>
+        <article>
+          <img src="assets/ch-montagne.webp" alt="" width="400" height="400" loading="lazy">
+          <h3 class="caps">Le Challenge Montagne</h3>
+          <p>Des épreuves sportives au cœur de la montagne, sur le domaine skiable de La Plagne.</p>
+          <p class="tags">Biathlon · Recherche DVA · Ski de rando · Raquettes</p>
+        </article>
+        <article>
+          <img src="assets/ch-village.webp" alt="" width="400" height="400" loading="lazy">
+          <h3 class="caps">Le Challenge Village</h3>
+          <p>Représenter son école : esprit d'équipe, détermination, et beaucoup de bruit.</p>
+          <p class="tags">Snooc · Snow volley · Hockey · Épreuve mystère</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PALMARES : le moment signature, une descente de slalom -->
+  <section class="slalom" id="palmares" data-sc-act="pin" data-sc-span="3.4">
+    <div data-sc-stage class="slalom__stage">
+      <svg class="ridge ridge--top" aria-hidden="true"><use href="#ridge" width="100%" height="100%"/></svg>
+      <div class="slalom__head">
+        <h2 class="caps caps--lg">Notre palmarès</h2>
+        <p>Quatre descentes, toujours 30 riders. Le Challenge Village grimpe : 3<sup>e</sup>, 5<sup>e</sup>, 4<sup>e</sup>, 2<sup>e</sup>… et en 2027&nbsp;?</p>
+      </div>
+      <svg class="slalom__svg" aria-hidden="true">
+        <path class="slalom__ghost"/>
+        <path class="slalom__trace"/>
+      </svg>
+      <span class="slalom__skier" aria-hidden="true"><svg viewBox="0 0 48 48" width="48" height="48">
+        <path d="M3 44h37q5 0 7-5" fill="none" stroke="#15174F" stroke-width="3" stroke-linecap="round"/>
+        <path d="M17 42l7-11 7 11" fill="none" stroke="#15174F" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M24 31l5-13" stroke="#2A31B4" stroke-width="9" stroke-linecap="round"/>
+        <path d="M28 21l8 6" stroke="#2A31B4" stroke-width="4" stroke-linecap="round"/>
+        <path d="M36 27l5 16M21 22l-9 21" stroke="#15174F" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M26 21l-5 1" stroke="#2A31B4" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="31" cy="12" r="5.5" fill="#FFB937"/>
+        <rect x="31" y="10" width="6" height="3.2" rx="1.4" fill="#15174F"/>
+      </svg></span>
+      <ol class="slalom__gates">
+        <li class="gate"><span class="gate__flag"></span><div class="gate__card"><b>2023</b><span>Ski 11<sup>e</sup>/33</span><span>Montagne 7<sup>e</sup>/16</span><span>Village <strong>3<sup>e</sup></strong>/13</span></div></li>
+        <li class="gate"><span class="gate__flag"></span><div class="gate__card"><b>2024</b><span>Ski 19<sup>e</sup>/38</span><span>Montagne 6<sup>e</sup>/16</span><span>Village <strong>5<sup>e</sup></strong>/30</span></div></li>
+        <li class="gate"><span class="gate__flag"></span><div class="gate__card"><b>2025</b><span>Ski 13<sup>e</sup>/40</span><span>Montagne 4<sup>e</sup>/18</span><span>Village <strong>4<sup>e</sup></strong>/30</span></div></li>
+        <li class="gate"><span class="gate__flag"></span><div class="gate__card"><b>2026</b><span>Ski 16<sup>e</sup>/45</span><span>Montagne <strong>3<sup>e</sup></strong>/24</span><span>Village <strong>2<sup>e</sup></strong>/30</span></div></li>
+        <li class="gate gate--goal"><span class="gate__flag"></span><div class="gate__card"><b>2027&nbsp;?</b><span>Ski : top 10</span><span>Montagne : top 3</span><span>Village : <strong>la 1<sup>re</sup> place</strong></span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- GALERIE : rail horizontal -->
+  <section class="galerie" id="galerie" data-sc-act="pan" data-sc-span="2.6">
+    <div data-sc-stage class="galerie__stage">
+      <div class="rail" data-sc-pan="0.08">
+        <div class="rail__lead">
+          <h2 class="caps caps--lg">Photos phares</h2>
+          <p>Slalom, village, podium, DJ set. Une semaine d'Altigliss en quelques images. La suite sur <a href="https://www.instagram.com/slide.session/" target="_blank" rel="noopener">@slide.session</a>.</p>
+          <a class="btn" href="photos.html">Toutes les photos</a>
+        </div>
+        <figure class="ph ph--tall"><img src="assets/unicorn.webp" alt="Rider Slide Session déguisé en licorne en plein slalom géant" loading="lazy"><figcaption>Le bonnet licorne, en course</figcaption></figure>
+        <figure class="ph"><img src="assets/g-redbull.webp" alt="Skieur en l'air devant l'arche Red Bull, la foule autour" loading="lazy"><figcaption>Village Red Bull</figcaption></figure>
+        <figure class="ph ph--low"><img src="assets/g-dj.webp" alt="DJ set sur scène devant un écran au logo Slide" loading="lazy"><figcaption>Le DJ set Slide</figcaption></figure>
+        <figure class="ph ph--tall"><img src="assets/g-gs.webp" alt="Slalom géant sous le télésiège" loading="lazy"><figcaption>Géant, La Plagne</figcaption></figure>
+        <figure class="ph"><img src="assets/g-crew.webp" alt="L'équipe en vestes bleues au pied des pistes" loading="lazy"><figcaption>L'équipe au départ</figcaption></figure>
+        <figure class="ph ph--low"><img src="assets/g-friends.webp" alt="Membres de l'asso déguisés au village" loading="lazy"><figcaption>Challenge Village</figcaption></figure>
+        <figure class="ph"><img src="assets/g-slalom.webp" alt="Slalom en forêt" loading="lazy"><figcaption>Spécial en forêt</figcaption></figure>
+        <figure class="ph"><img src="assets/g-snooc.webp" alt="Course de snooc" loading="lazy"><figcaption>Course de snooc</figcaption></figure>
+        <a class="ph ph--more" href="photos.html"><span>Voir toutes<br>les photos</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUREAU -->
+  <section class="bureau wrap" id="bureau">
+    <div class="bureau__head" data-sc-in>
+      <h2 class="caps caps--lg">Le bureau 2026-2027</h2>
+      <p>Quatre visages, un sweat bleu, un objectif : la 1<sup>re</sup> place au village.</p>
+    </div>
+    <div class="bureau__grid" data-sc-in data-sc-stagger="90">
+      <figure><div data-sc-tilt="6"><img src="assets/b-yohann.webp" alt="Yohann Baduy" width="324" height="432" loading="lazy"></div><figcaption><b>Yohann Baduy</b>Président</figcaption></figure>
+      <figure><div data-sc-tilt="6"><img src="assets/b-claire.webp" alt="Claire Mousset" width="324" height="432" loading="lazy"></div><figcaption><b>Claire Mousset</b>Vice-présidente</figcaption></figure>
+      <figure><div data-sc-tilt="6"><img src="assets/b-matthis.webp" alt="Matthis Le Quéré" width="324" height="432" loading="lazy"></div><figcaption><b>Matthis Le Quéré</b>Trésorier</figcaption></figure>
+      <figure><div data-sc-tilt="6"><img src="assets/b-anae.webp" alt="Anaé Grall" width="324" height="432" loading="lazy"></div><figcaption><b>Anaé Grall</b>Secrétaire</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- GOODIES -->
+  <section class="goodies" id="goodies">
+    <svg class="ridge ridge--top" aria-hidden="true"><use href="#ridge" width="100%" height="100%"/></svg>
+    <div class="wrap">
+      <div class="goodies__head" data-sc-in>
+        <h2 class="caps caps--lg">Les goodies</h2>
+        <p>Porte les couleurs de Slide toute l'année. Tu choisis, tu envoies ta commande, on te recontacte pour le paiement et la remise en main propre au pôle.</p>
+      </div>
+      <div class="shop"></div>
+    </div>
+    <aside class="cart" aria-label="Panier" hidden>
+      <div class="cart__panel">
+        <div class="cart__top"><h3 class="caps">Ton panier</h3><button type="button" class="cart__close" aria-label="Fermer le panier">×</button></div>
+        <ul class="cart__list"></ul>
+        <p class="cart__total"></p>
+        <form class="cart__form">
+          <label>Prénom et nom<input name="nom" required autocomplete="name"></label>
+          <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+          <label>École<select name="ecole"><option>EMLV</option><option>ESILV</option><option>IIM</option><option>Autre</option></select></label>
+          <button class="btn btn--solid" type="submit">Envoyer ma commande</button>
+          <p class="fine">Ouvre ton application mail avec la commande pré-remplie. Aucun paiement en ligne.</p>
+        </form>
+      </div>
+    </aside>
+    <button type="button" class="cart__fab" hidden>Panier <span class="cart__count">0</span></button>
+  </section>
+
+  <!-- SPONSORS ACTUELS -->
+  <section class="sponsors wrap" id="sponsors">
+    <h2 class="caps caps--lg" data-sc-in>Ils nous font confiance</h2>
+    <div class="marquee" aria-label="Nos sponsors">
+      <div class="marquee__track">
+      <ul class="marquee__set">
+        <li><img class="lg lg--smt" src="assets/logo-smt.png" alt="SMT Fine Art" width="240" height="104"></li>
+        <li><b>Immobilière</b> Vallette<small>Marseille</small></li>
+        <li><img class="lg lg--ecovis" src="assets/logo-ecovis.png" alt="Ecovis" width="150" height="37"></li>
+        <li><b>ISBL</b><small>Consultants</small></li>
+        <li><img class="lg lg--devinci" src="assets/logo-devinci.png" alt="De Vinci Higher Education" width="287" height="150"></li>
+      </ul>
+      <ul class="marquee__set" aria-hidden="true">
+        <li><img class="lg lg--smt" src="assets/logo-smt.png" alt="SMT Fine Art" width="240" height="104"></li>
+        <li><b>Immobilière</b> Vallette<small>Marseille</small></li>
+        <li><img class="lg lg--ecovis" src="assets/logo-ecovis.png" alt="Ecovis" width="150" height="37"></li>
+        <li><b>ISBL</b><small>Consultants</small></li>
+        <li><img class="lg lg--devinci" src="assets/logo-devinci.png" alt="De Vinci Higher Education" width="287" height="150"></li>
+      </ul>
+      </div>
+    </div>
+    <p class="sponsors__note">Leurs logos voyagent sur nos vestes, nos goodies et notre drapeau, du village Altigliss aux réseaux.</p>
+    <div class="band__cta"><a class="btn btn--solid" href="#partenaire">Devenir partenaire</a></div>
+  </section>
+
+  <!-- DEVENIR PARTENAIRE -->
+  <section class="partner" id="partenaire" data-sc-act="flow">
+    <img class="partner__bg" data-sc-parallax="0.12" src="assets/team-flag.webp" alt="" loading="lazy">
+    <div class="wrap partner__inner">
+      <div class="partner__head" data-sc-in>
+        <h2 class="caps caps--xl">Devenir partenaire</h2>
+        <p>Une semaine devant 1 000 étudiants de 30 nationalités, 90 équipes et 120 partenaires. Et toute l'année sur nos vestes, nos goodies et nos réseaux (2 100 abonnés Instagram).</p>
+      </div>
+
+      <div class="packs" data-sc-in data-sc-stagger="100">
+        <article class="pack pack--bronze">
+          <h3 class="caps">Bronze</h3>
+          <p class="pack__price">500 à 1 000 €</p>
+          <ul><li>Communication sponsorisée et mentions sur nos réseaux pendant toute la durée de l'événement</li></ul>
+        </article>
+        <article class="pack pack--argent">
+          <h3 class="caps">Argent</h3>
+          <p class="pack__price">1 500 €</p>
+          <ul><li>Pack Bronze inclus</li><li>Drapeau personnalisé Slide Session × votre entreprise</li><li>Communication sponsorisée pendant l'événement</li></ul>
+        </article>
+        <article class="pack pack--or">
+          <h3 class="caps">Or</h3>
+          <p class="pack__price">2 300 € et plus</p>
+          <ul><li>Packs Bronze et Argent inclus</li><li>Votre logo sur toutes nos vestes, plus de 30</li><li>Votre logo sur tous nos goodies, portés toute l'année</li></ul>
+        </article>
+      </div>
+      <p class="special"><b>Prestation spéciale.</b> Une activation pour votre entreprise pendant notre voyage au ski ou dans l'année. Le prix se définit avec vous.</p>
+
+      <div class="partner__grid">
+        <div class="why" data-sc-in>
+          <h3 class="caps">Pourquoi nous&nbsp;?</h3>
+          <ul>
+            <li><b>Visibilité</b> auprès d'étudiants en école de commerce, d'ingénieurs et du digital.</li>
+            <li><b>Marque employeur</b> renforcée auprès de vos futurs talents.</li>
+            <li><b>Un coup de pouce réel</b> : le GAC coûte 1 140 € par étudiant (inscription 720 €, transport 200 €, vestes et goodies 220 €), soit 34 200 € pour nos 30 riders.</li>
+          </ul>
+          <div class="don">
+            <h4>Plutôt un don&nbsp;?</h4>
+            <p>Un don sans contrepartie ouvre droit à une réduction d'impôt : 66 % pour un particulier, 60 % pour une entreprise (sous réserve d'éligibilité de l'association).</p>
+            <label class="don__calc">Montant du don <input type="number" min="0" step="50" value="500" inputmode="numeric"> €</label>
+            <p class="don__out" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <form class="pform" data-sc-in>
+          <h3 class="caps">Demande de partenariat</h3>
+          <label>Entreprise<input name="entreprise" required autocomplete="organization"></label>
+          <label>Votre nom<input name="nom" required autocomplete="name"></label>
+          <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+          <label>Téléphone<input name="tel" type="tel" autocomplete="tel"></label>
+          <label>Pack envisagé<select name="pack"><option>Bronze</option><option>Argent</option><option selected>Or</option><option>Prestation spéciale</option><option>Don</option><option>À discuter</option></select></label>
+          <label>Message<textarea name="message" rows="4" placeholder="Votre idée, vos dates, vos questions"></textarea></label>
+          <button class="btn btn--solid" type="submit">Envoyer la demande</button>
+          <p class="fine">Ouvre votre messagerie avec la demande pré-remplie, adressée au président de l'asso.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / CLOSE -->
+  <section class="close" id="contact">
+    <svg class="ridge ridge--top" aria-hidden="true"><use href="#ridge" width="100%" height="100%"/></svg>
+    <div class="wrap">
+      <h2 class="caps caps--xl" data-sc-in>On se retrouve<br>à La Plagne</h2>
+      <ul class="contacts" data-sc-in data-sc-stagger="80">
+        <li><b>Yohann Baduy</b><span>Président</span><a href="mailto:yohann.baduy@edu.devinci.fr">yohann.baduy@edu.devinci.fr</a></li>
+        <li><b>Claire Mousset</b><span>Vice-présidente</span><a href="mailto:claire.mousset@edu.devinci.fr">claire.mousset@edu.devinci.fr</a></li>
+        <li><b>Matthis Le Quéré</b><span>Trésorier</span><a href="mailto:matthis.le_quere@edu.devinci.fr">matthis.le_quere@edu.devinci.fr</a></li>
+        <li><b>Anaé Grall</b><span>Secrétaire</span><a href="mailto:anae.grall@edu.devinci.fr">anae.grall@edu.devinci.fr</a></li>
+      </ul>
+      <div class="socials">
+        <a href="https://www.instagram.com/slide.session/" target="_blank" rel="noopener">Instagram @slide.session</a>
+        <a href="https://www.tiktok.com/@slide.session" target="_blank" rel="noopener">TikTok @slide.session</a>
+      </div>
+    </div>
+    <footer class="foot">
+      <img src="assets/logo.png" alt="" width="96" height="76" loading="lazy">
+      <p>Slide Session · association étudiante du Pôle Léonard de Vinci, La Défense · depuis 1999</p>
+    </footer>
+  </section>
+
+</main>
+
+<script src="scrollcraft.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

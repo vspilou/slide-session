@@ -1,0 +1,10 @@
+# sources brutes, tests et outils : hors du site publié
+src/
+lab/
+node_modules/
+versions/
+scrollcraft/
+v2/3d/out/
+package.json
+package-lock.json
+BRIEF.md

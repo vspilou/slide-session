@@ -1,0 +1,6 @@
+fichier | site | licence
+assets/*.webp, assets/logo.png | plaquette sponsor Slide Session (plaquette sponsor final-4.pdf) | photos et logo de l'association Slide Session
+assets/teaser*.mp4, assets/teaser-poster.webp | instagram.com/reel/DOnvUzSjUXo (teaser Slide Session, 15/09/2025), remis en paysage, 6 s d'intro noire, dessin du logo sur papier (15,3-20,1 s) et carton « RDV au forum » final coupés, sans le son | vidéo de l'association Slide Session
+assets/logo-smt.png | smt.mc (logo officiel, fond blanc rendu transparent) | logo du sponsor SMT Fine Art, utilisé avec son accord de sponsoring
+assets/logo-ecovis.png | ecovis.fr (logo officiel, mention « devient Endrix » retirée) | logo du sponsor Ecovis
+assets/logo-devinci.png | devinci.fr (logo officiel) | logo De Vinci Higher Education
