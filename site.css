@@ -356,3 +356,18 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--blue); outl
 
 .pack__price small { display: block; margin-bottom: 4px; font-family: var(--sc-font-text); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
 .pack__price { font-variant-numeric: tabular-nums; }
+
+/* packs : prix barré, coût réel après 66 % mis en avant */
+.pack { position: relative; }
+.pack__badge { position: absolute; top: 18px; right: 18px; padding: 6px 12px; border-radius: 999px; background: var(--sc-accent); color: var(--sc-ink);
+  font-family: var(--sc-font-display); font-size: 15px; letter-spacing: .03em; transform: rotate(4deg); box-shadow: 0 8px 18px -10px rgba(0,0,0,.6); }
+.pack--or .pack__badge { background: var(--sc-ink); color: var(--sc-accent); }
+.pack__price s { font-size: .82em; opacity: .65; text-decoration-thickness: 1.5px; }
+.pack__net { margin: 2px 0 6px; padding: 12px 14px; border-radius: 12px; background: rgba(255,185,55,.14); border: 1px solid rgba(255,185,55,.45); display: grid; gap: 2px; }
+.pack__net small { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--sc-accent); }
+.pack__net b { font-family: var(--sc-font-display); font-weight: 400; font-size: clamp(30px, 3vw, 40px); line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+.pack--or .pack__net { background: rgba(21,23,79,.08); border-color: rgba(21,23,79,.25); }
+.pack--or .pack__net small { color: var(--sc-ink); }
+.pack--or .pack__net b { color: var(--sc-ink); }
+.pack__note { margin-top: -12px; font-size: 13px; color: rgba(255,255,255,.7); }
+.pack--or .pack__price s { opacity: .8; }
